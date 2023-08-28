@@ -36,19 +36,19 @@ hdf5_path=$install_path/hdf5-1.10.6/1.10.6
 cgns_path=$install_path/CGNS/4.4.0
 module load gcc/9.2.0  openmpi/3.1.6
 #step 1 setup hdf5
-#cd $install_path
-#git clone $hdf5_git
-#cd $install_path/hdf5-1.10.6
-#CC=mpicc ./configure --enable-fortran --enable-parallel --enable-shared --prefix=$hdf5_path
-#make
-#make install
+cd $install_path
+git clone $hdf5_git
+cd $install_path/hdf5-1.10.6
+CC=mpicc ./configure --enable-fortran --enable-parallel --enable-shared --prefix=$hdf5_path
+make
+make install
 #step 2 setup cgns
-#cd $install_path
-#git clone -b master $cgns_git
-#cd $install_path/CGNS/src
-#CC=mpicc LIBS="-ldl -lz" ./configure --prefix=$cgns_path --with-hdf5=$hdf5_path  --enable-parallel
-#make
-#make install
+cd $install_path
+git clone -b master $cgns_git
+cd $install_path/CGNS/src
+CC=mpicc LIBS="-ldl -lz" ./configure --prefix=$cgns_path --with-hdf5=$hdf5_path  --enable-parallel
+make
+make install
 #step 3 grab chord and Chombo
 cd $chord_chombo_path
 git clone $chombo_git
