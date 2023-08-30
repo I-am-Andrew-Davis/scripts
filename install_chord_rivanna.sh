@@ -42,14 +42,14 @@ cgnssource=1
 cgnsinstall=1
 #step 1 setup hdf5
 #if you dont have the hdf5 source code, grab it
-if [! -d "$install_path/hdf5-1.10.6"];
+if [ ! -d "$install_path/hdf5-1.10.6"];
 then
     hdf5source=0 #used for warnings
     cd $install_path
     git clone $hdf5_git
 fi
 #if you dont have the hdf5 lib installed, install it
-if [! -d "$hdf5_path/lib"];
+if [ ! -d "$hdf5_path/lib"];
 then
     hdf5install=0 #used for warnings
     cd $install_path/hdf5-1.10.6
@@ -59,14 +59,14 @@ then
 fi
 #step 2 setup cgns
 #if you dont have the cgns source code, grab it
-if [! -d "$install_path/CGNS"];
+if [ ! -d "$install_path/CGNS"];
 then
     cgnssource=0 #used for warnings
     cd $install_path
     git clone -b master $cgns_git
 fi
 #if you dont have the cgns lib installed, install it
-if [! -d "$cgns_path/lib"];
+if [ ! -d "$cgns_path/lib"];
 then
     cgnsinstall=0 #used for warnings
     cd $install_path/CGNS/src
