@@ -91,15 +91,15 @@ sed -i "s,HDFMPILIBFLAGS   = -lhdf5 -lsz -lz -ldl,HDFMPILIBFLAGS   = -L$hdf5_pat
 sed -i "s,CGNSINCFLAGS =,CGNSINCFLAGS = -I$cgns_path/include,1" Make.defs.local
 sed -i "s,CGNSLIBFLAGS = -lcgns, CGNSLIBFLAGS = -L$cgns_path/lib -lcgns,1" Make.defs.local
 
-if [[$hdf5source -eq 1]]; then
+if [$hdf5source -eq 1]; then
 echo "WARNING: it appears you already have the hdf5-1.10.6 soure code installed... skipping grabbing it"
 fi
-if [[$hdf5install -eq 1]]; then
+if [$hdf5install -eq 1]; then
 echo "WARNING: it appears you already have the hdf5-1.10.6 library installed... skipping installation"
 fi
-if [[$cgnssource -eq 1]]; then
+if [$cgnssource -eq 1]; then
 echo "WARNING: it appears you already have the cgns-4.4.0 soure code installed... skipping grabbing it"
 fi
-if [[$cgnsinstall -eq 1]]; then
+if [$cgnsinstall -eq 1]; then
 echo "WARNING: it appears you already have the cgns-4.4.0 library installed... skipping installation"
 fi
