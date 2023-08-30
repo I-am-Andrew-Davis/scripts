@@ -17,7 +17,7 @@
 #computing ID (no spaces anywhere)
 computing_ID=gtv6bk
 #where CGNS and HDF5 live
-install_path=/home/$computing_ID/Codes
+install_path=/home/$computing_ID/bin
 #where Chord and Chombo live
 chord_chombo_path=/home/$computing_ID/Codes
 mkdir $install_path
@@ -42,14 +42,14 @@ cgnssource=1
 cgnsinstall=1
 #step 1 setup hdf5
 #if you dont have the hdf5 source code, grab it
-if [ ! -d "$install_path/hdf5-1.10.6"];
+if [ ! -d "$install_path/hdf5-1.10.6" ];
 then
     hdf5source=0 #used for warnings
     cd $install_path
     git clone $hdf5_git
 fi
 #if you dont have the hdf5 lib installed, install it
-if [ ! -d "$hdf5_path/lib"];
+if [ ! -d "$hdf5_path/lib" ];
 then
     hdf5install=0 #used for warnings
     cd $install_path/hdf5-1.10.6
@@ -59,14 +59,14 @@ then
 fi
 #step 2 setup cgns
 #if you dont have the cgns source code, grab it
-if [ ! -d "$install_path/CGNS"];
+if [ ! -d "$install_path/CGNS" ];
 then
     cgnssource=0 #used for warnings
     cd $install_path
     git clone -b master $cgns_git
 fi
 #if you dont have the cgns lib installed, install it
-if [ ! -d "$cgns_path/lib"];
+if [ ! -d "$cgns_path/lib" ];
 then
     cgnsinstall=0 #used for warnings
     cd $install_path/CGNS/src
@@ -91,15 +91,15 @@ sed -i "s,HDFMPILIBFLAGS   = -lhdf5 -lsz -lz -ldl,HDFMPILIBFLAGS   = -L$hdf5_pat
 sed -i "s,CGNSINCFLAGS =,CGNSINCFLAGS = -I$cgns_path/include,1" Make.defs.local
 sed -i "s,CGNSLIBFLAGS = -lcgns, CGNSLIBFLAGS = -L$cgns_path/lib -lcgns,1" Make.defs.local
 
-if [$hdf5source -eq 1]; then
-echo "WARNING: it appears you already have the hdf5-1.10.6 soure code installed... skipping grabbing it"
+if [ $hdf5source -eq 1 ]; then
+echo "WARNING: it appears you already have the hdf5-1.10.6 soure code downloaded... skipping download"
 fi
-if [$hdf5install -eq 1]; then
+if [ $hdf5install -eq 1 ]; then
 echo "WARNING: it appears you already have the hdf5-1.10.6 library installed... skipping installation"
 fi
-if [$cgnssource -eq 1]; then
-echo "WARNING: it appears you already have the cgns-4.4.0 soure code installed... skipping grabbing it"
+if [ $cgnssource -eq 1 ]; then
+echo "WARNING: it appears you already have the cgns-4.4.0 soure code downloaded... skipping download"
 fi
-if [$cgnsinstall -eq 1]; then
+if [ $cgnsinstall -eq 1 ]; then
 echo "WARNING: it appears you already have the cgns-4.4.0 library installed... skipping installation"
 fi
