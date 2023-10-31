@@ -6,15 +6,15 @@
 while getopts 'r d' OPTION; do
 	case "$OPTION" in
 	 r)
-		rm -rf ~/trash/*
+		rm -rf ~/.trash/*
 		;;
 	 d)
-		mv ~/Downloads/* ~/trash/
+		mv ~/Downloads/* ~/.trash/
 		;;
 	esac
 done
 
 if (($OPTIND == 1 )); then
 	outputFile=$1;
-	mv $outputFile "$@" ~/trash;
+	mv  "$@" ~/.trash;
 fi
