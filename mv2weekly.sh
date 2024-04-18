@@ -1,8 +1,8 @@
 #!/usr/bin/bash
 #
-FIG_PATH=
-CHART_PATH=
-DATA_PATH=
+FIG_PATH=/home/gtv6bk/Documents/weeklyMeetings/2024/April/10/figures
+CHART_PATH=/home/gtv6bk/Documents/weeklyMeetings/2024/April/10/charts
+DATA_PATH=/home/gtv6bk/Documents/weeklyMeetings/2024/April/10/charts/data
 while getopts "fcd:" flag; do
     case $flag in
         f) # moved files to the weekly meeting figures directory
